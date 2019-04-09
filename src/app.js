@@ -24,7 +24,7 @@ app.get('/weather', (req, res) => {
 
     geocode(address, (error, { lat, lon }) => {
         if (error) {
-            return res.send('some error occured in geocode function');
+            return res.send('some error occured in geocode function');``
         }
         forecast(lat, lon, (error, { temp, rain }) => {
             if (error) {
@@ -41,4 +41,4 @@ app.get('*', (req, res) => {
     res.sendStatus(404);
 })
 
-app.listen(process.argv.port || 3000, () => { console.log('Server is up on port 3000')});
+app.listen(process.env.PORT || 3000, () => { console.log('Server is up on port 3000')});
